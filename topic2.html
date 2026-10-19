@@ -1,23 +1,66 @@
-<main>
-    <h2>Service Workers and Caching</h2>
-    <p>Service workers act as client-side proxies, intercepting network requests to serve cached content when offline.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 2: Service Workers and Offline Architecture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <h3>Comparison Table</h3>
-    <table class="content-table">
-        <tr>
-            <th>Feature</th>
-            <th>Traditional Web Page</th>
-            <th>Modern PWA</th>
-        </tr>
-        <tr>
-            <td>Offline Access</td>
-            <td>No (Requires Internet)</td>
-            <td>Yes (Via Cache Storage)</td>
-        </tr>
-        <tr>
-            <td>Installation</td>
-            <td>Browser Bookmark</td>
-            <td>Add to Home Screen</td>
-        </tr>
-    </table>
-</main>
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topic1.html">Topic 1</a></li>
+            <li><a href="topic2.html">Topic 2</a></li>
+            <li><a href="concepts.html">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Subtopic 2: Service Workers and Offline Architecture</h1>
+        <p>The technical backbone of offline-first web browsing</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>How Service Workers Function</h2>
+            <p>
+                A service worker is an event-driven worker registered with a specific origin and path. 
+                It runs in a background thread separate from the main application script, intercepting network requests and interacting with caches.
+            </p>
+            
+            <!-- Table requirement -->
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Lifecycle Stage</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Registration</td>
+                        <td>The browser is instructed to download and register the service worker script.</td>
+                    </tr>
+                    <tr>
+                        <td>Installation</td>
+                        <td>Core assets are cached locally before the worker becomes active.</td>
+                    </tr>
+                    <tr>
+                        <td>Activation</td>
+                        <td>The service worker takes control over pages and cleans up old caches.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Note: This is a class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank" style="color: #85c1e9;">IT3203</a>[cite: 1].</p>
+    </footer>
+
+</body>
+</html>
