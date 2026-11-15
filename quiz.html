@@ -3,103 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topic Self-Assessment Quiz | IT 3203 Project</title>
+    <title>PWA Self-Assessment Quiz | IT 3203 Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Main Navigation Menu -->
+    <!-- Header matching your site's header and navigation menu -->
     <header>
+        <h1 id="main-heading">PWA Self-Assessment Quiz</h1>
         <nav>
-            <ul>
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="topic.html">Content</a></li>
-                <li><a href="quiz.html" class="active">Quiz</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="quiz-container">
-        <h1>Project Topic Self-Assessment Quiz</h1>
-        <p>Test your understanding of the concepts covered in Milestone 1. You have <strong>10 minutes</strong> to complete this quiz.</p>
-        
-        <!-- Timer Display -->
-        <div id="timer-box">Time Remaining: <span id="time-left">10:00</span></div>
+    <main>
+        <!-- Intro Abstract styled with your style.css ID -->
+        <div id="intro-abstract">
+            <p>Test your understanding of Progressive Web Apps (PWAs) covered in Milestone 1. You have <strong>10 minutes</strong> to complete this assessment. It includes single-choice, multi-selection, and fill-in-the-blank questions.</p>
+        </div>
+
+        <!-- Timer Display Box -->
+        <div id="timer-box">
+            <span>Time Remaining: <span id="time-left">10:00</span></span>
+        </div>
 
         <form id="quiz-form">
-            <!-- Question 1: Multiple Choice (1) -->
+            <!-- Question 1: Multiple Choice -->
             <div class="question-card" data-q="1">
-                <p><strong>1. Which of the following best describes the core concept of our selected topic?</strong></p>
-                <label><input type="radio" name="q1" value="A"> A) Incorrect conceptual definition option</label><br>
-                <label><input type="radio" name="q1" value="B"> B) The correct accurate description</label><br>
-                <label><input type="radio" name="q1" value="C"> C) Another distractor option</label>
+                <p><strong>1. Which core web technology acts as the foundation for a PWA's ability to work offline by intercepting network requests?</strong></p>
+                <label><input type="radio" name="q1" value="A"> A) LocalStorage</label><br>
+                <label><input type="radio" name="q1" value="B"> B) Service Worker</label><br>
+                <label><input type="radio" name="q1" value="C"> C) WebSockets</label><br>
+                <label><input type="radio" name="q1" value="D"> D) IndexedDB</label>
             </div>
 
-            <!-- Question 2: Multiple Choice (2) -->
+            <!-- Question 2: Multiple Choice -->
             <div class="question-card" data-q="2">
-                <p><strong>2. What is the primary purpose or utility of the primary component?</strong></p>
-                <label><input type="radio" name="q2" value="A"> A) Distractor option one</label><br>
-                <label><input type="radio" name="q2" value="B"> B) Distractor option two</label><br>
-                <label><input type="radio" name="q2" value="C"> C) The correct operational purpose</label>
+                <p><strong>2. What is the name of the JSON configuration file that defines a PWA's appearance, icons, start URL, and display mode when installed?</strong></p>
+                <label><input type="radio" name="q2" value="A"> A) <code>manifest.json</code></label><br>
+                <label><input type="radio" name="q2" value="B"> B) <code>config.xml</code></label><br>
+                <label><input type="radio" name="q2" value="C"> C) <code>package.json</code></label><br>
+                <label><input type="radio" name="q2" value="D"> D) <code>settings.webmanifest</code></label>
             </div>
 
-            <!-- Question 3: Multiple Choice (3) -->
+            <!-- Question 3: Multiple Choice -->
             <div class="question-card" data-q="3">
-                <p><strong>3. Which standard or protocol is most widely utilized in this domain?</strong></p>
-                <label><input type="radio" name="q3" value="A"> A) The correct protocol standard</label><br>
-                <label><input type="radio" name="q3" value="B"> B) An obsolete legacy standard</label><br>
-                <label><input type="radio" name="q3" value="C"> C) Unrelated format</label>
+                <p><strong>3. Which API is required for a Progressive Web App to proactively send notifications to a user even when the browser is closed?</strong></p>
+                <label><input type="radio" name="q3" value="A"> A) Geolocation API</label><br>
+                <label><input type="radio" name="q3" value="B"> B) Push API</label><br>
+                <label><input type="radio" name="q3" value="C"> C) Canvas API</label><br>
+                <label><input type="radio" name="q3" value="D"> D) Fetch API</label>
             </div>
 
-            <!-- Question 4: Multi-Selection (Checkbox) -->
+            <!-- Question 4: Multi-Selection (Checkboxes) -->
             <div class="question-card" data-q="4">
-                <p><strong>4. Select all valid key features or benefits associated with this topic (Choose more than one):</strong></p>
-                <label><input type="checkbox" name="q4" value="A"> A) Valid feature one</label><br>
-                <label><input type="checkbox" name="q4" value="B"> B) Invalid distractor feature</label><br>
-                <label><input type="checkbox" name="q4" value="C"> C) Valid feature two</label><br>
-                <label><input type="checkbox" name="q4" value="D"> D) Valid feature three</label>
+                <p><strong>4. Select all key characteristics or benefits that define a Progressive Web App (Choose more than one):</strong></p>
+                <label><input type="checkbox" name="q4" value="A"> A) Reliability (works offline or on low-quality networks)</label><br>
+                <label><input type="checkbox" name="q4" value="B"> B) Required submission to proprietary app stores like Apple App Store or Google Play Store to function</label><br>
+                <label><input type="checkbox" name="q4" value="C"> C) Installability (can be added directly to a device's home screen)</label><br>
+                <label><input type="checkbox" name="q4" value="D"> D) Responsiveness (fits any screen size—desktop, mobile, or tablet)</label>
             </div>
 
-            <!-- Question 5: Fill in the Blank (1) -->
+            <!-- Question 5: Fill in the Blank -->
             <div class="question-card" data-q="5">
-                <p><strong>5. Fill in the blank: The foundational programming language primarily used for client-side interactivity on web browsers is _________.</strong></p>
-                <input type="text" name="q5" placeholder="Enter your answer...">
+                <p><strong>5. Fill in the blank: The security prerequisite mandated by modern browsers for registering a service worker and securing user data in a PWA is _________.</strong></p>
+                <input type="text" name="q5" placeholder="Enter protocol name...">
             </div>
 
-            <!-- Question 6: Fill in the Blank (2) -->
+            <!-- Question 6: Fill in the Blank -->
             <div class="question-card" data-q="6">
-                <p><strong>6. Fill in the blank: Cascading Style Sheets are abbreviated as _________.</strong></p>
-                <input type="text" name="q6" placeholder="Enter your answer...">
+                <p><strong>6. Fill in the blank: The browser caching storage mechanism commonly used alongside service workers to store static assets and dynamic responses is called the Cache _________.</strong></p>
+                <input type="text" name="q6" placeholder="Enter interface name...">
             </div>
 
-            <!-- Questions 7-10: Additional Multiple Choice to meet the 10-question requirement -->
+            <!-- Question 7: Multiple Choice -->
             <div class="question-card" data-q="7">
-                <p><strong>7. Question 7 related to your topic content:</strong></p>
-                <label><input type="radio" name="q7" value="A"> A) Correct choice</label><br>
-                <label><input type="radio" name="q7" value="B"> B) Wrong choice</label>
-            </div>
-            <div class="question-card" data-q="8">
-                <p><strong>8. Question 8 related to your topic content:</strong></p>
-                <label><input type="radio" name="q8" value="A"> A) Wrong choice</label><br>
-                <label><input type="radio" name="q8" value="B"> B) Correct choice</label>
-            </div>
-            <div class="question-card" data-q="9">
-                <p><strong>9. Question 9 related to your topic content:</strong></p>
-                <label><input type="radio" name="q9" value="A"> A) Correct choice</label><br>
-                <label><input type="radio" name="q9" value="B"> B) Wrong choice</label>
-            </div>
-            <div class="question-card" data-q="10">
-                <p><strong>10. Question 10 related to your topic content:</strong></p>
-                <label><input type="radio" name="q10" value="A"> A) Wrong choice</label><br>
-                <label><input type="radio" name="q10" value="B"> B) Correct choice</label>
+                <p><strong>7. Which caching strategy is best suited for serving static PWA shell files instantly from cache while updating them in the background from the network?</strong></p>
+                <label><input type="radio" name="q7" value="A"> A) Stale-While-Revalidate</label><br>
+                <label><input type="radio" name="q7" value="B"> B) Network-Only</label><br>
+                <label><input type="radio" name="q7" value="C"> C) Cache-Only</label><br>
+                <label><input type="radio" name="q7" value="D"> D) Network-First</label>
             </div>
 
+            <!-- Question 8: Multiple Choice -->
+            <div class="question-card" data-q="8">
+                <p><strong>8. Can a Progressive Web App be discovered and installed directly via a standard web URL link without visiting an app store?</strong></p>
+                <label><input type="radio" name="q8" value="A"> A) No, app store download is strictly required for installation.</label><br>
+                <label><input type="radio" name="q8" value="B"> B) Yes, users can install it directly from the browser prompt or web page.</label>
+            </div>
+
+            <!-- Question 9: Multiple Choice -->
+            <div class="question-card" data-q="9">
+                <p><strong>9. What is the primary purpose of the <code>fetch</code> event listener inside a service worker script?</strong></p>
+                <label><input type="radio" name="q9" value="A"> A) To handle incoming push notifications from a server.</label><br>
+                <label><input type="radio" name="q9" value="B"> B) To intercept and manage network requests made by the web application.</label><br>
+                <label><input type="radio" name="q9" value="C"> C) To compress images before they load on the screen.</label><br>
+                <label><input type="radio" name="q9" value="D"> D) To register the PWA with the operating system.</label>
+            </div>
+
+            <!-- Question 10: Multiple Choice -->
+            <div class="question-card" data-q="10">
+                <p><strong>10. Which display mode in the web app manifest removes all browser address bars and navigation controls so the PWA looks and feels like a native app?</strong></p>
+                <label><input type="radio" name="q10" value="A"> A) <code>browser</code></label><br>
+                <label><input type="radio" name="q10" value="B"> B) <code>minimal-ui</code></label><br>
+                <label><input type="radio" name="q10" value="C"> C) <code>standalone</code></label><br>
+                <label><input type="radio" name="q10" value="D"> D) <code>fullscreen</code></label>
+            </div>
+
+            <!-- Form Action Buttons -->
             <div class="form-actions">
                 <button type="button" id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
                 <button type="button" id="reset-btn" onclick="resetQuiz()">Reset Quiz</button>
             </div>
         </form>
 
-        <!-- Results Display Box -->
+        <!-- Results Display Section -->
         <div id="results-section" class="hidden">
             <h2>Quiz Results</h2>
             <div id="summary-banner"></div>
@@ -109,7 +130,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 IT 3203 Project Milestone #2</p>
+        <p>&copy; This is a class project for IT3203.</p>
     </footer>
 
     <script src="quiz.js"></script>
