@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Self-Assessment Quiz | IT 3203 Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Navigation Menu -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topic.html">Content</a></li>
+                <li><a href="quiz.html" class="active">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="quiz-container">
+        <h1>Project Topic Self-Assessment Quiz</h1>
+        <p>Test your understanding of the concepts covered in Milestone 1. You have <strong>10 minutes</strong> to complete this quiz.</p>
+        
+        <!-- Timer Display -->
+        <div id="timer-box">Time Remaining: <span id="time-left">10:00</span></div>
+
+        <form id="quiz-form">
+            <!-- Question 1: Multiple Choice (1) -->
+            <div class="question-card" data-q="1">
+                <p><strong>1. Which of the following best describes the core concept of our selected topic?</strong></p>
+                <label><input type="radio" name="q1" value="A"> A) Incorrect conceptual definition option</label><br>
+                <label><input type="radio" name="q1" value="B"> B) The correct accurate description</label><br>
+                <label><input type="radio" name="q1" value="C"> C) Another distractor option</label>
+            </div>
+
+            <!-- Question 2: Multiple Choice (2) -->
+            <div class="question-card" data-q="2">
+                <p><strong>2. What is the primary purpose or utility of the primary component?</strong></p>
+                <label><input type="radio" name="q2" value="A"> A) Distractor option one</label><br>
+                <label><input type="radio" name="q2" value="B"> B) Distractor option two</label><br>
+                <label><input type="radio" name="q2" value="C"> C) The correct operational purpose</label>
+            </div>
+
+            <!-- Question 3: Multiple Choice (3) -->
+            <div class="question-card" data-q="3">
+                <p><strong>3. Which standard or protocol is most widely utilized in this domain?</strong></p>
+                <label><input type="radio" name="q3" value="A"> A) The correct protocol standard</label><br>
+                <label><input type="radio" name="q3" value="B"> B) An obsolete legacy standard</label><br>
+                <label><input type="radio" name="q3" value="C"> C) Unrelated format</label>
+            </div>
+
+            <!-- Question 4: Multi-Selection (Checkbox) -->
+            <div class="question-card" data-q="4">
+                <p><strong>4. Select all valid key features or benefits associated with this topic (Choose more than one):</strong></p>
+                <label><input type="checkbox" name="q4" value="A"> A) Valid feature one</label><br>
+                <label><input type="checkbox" name="q4" value="B"> B) Invalid distractor feature</label><br>
+                <label><input type="checkbox" name="q4" value="C"> C) Valid feature two</label><br>
+                <label><input type="checkbox" name="q4" value="D"> D) Valid feature three</label>
+            </div>
+
+            <!-- Question 5: Fill in the Blank (1) -->
+            <div class="question-card" data-q="5">
+                <p><strong>5. Fill in the blank: The foundational programming language primarily used for client-side interactivity on web browsers is _________.</strong></p>
+                <input type="text" name="q5" placeholder="Enter your answer...">
+            </div>
+
+            <!-- Question 6: Fill in the Blank (2) -->
+            <div class="question-card" data-q="6">
+                <p><strong>6. Fill in the blank: Cascading Style Sheets are abbreviated as _________.</strong></p>
+                <input type="text" name="q6" placeholder="Enter your answer...">
+            </div>
+
+            <!-- Questions 7-10: Additional Multiple Choice to meet the 10-question requirement -->
+            <div class="question-card" data-q="7">
+                <p><strong>7. Question 7 related to your topic content:</strong></p>
+                <label><input type="radio" name="q7" value="A"> A) Correct choice</label><br>
+                <label><input type="radio" name="q7" value="B"> B) Wrong choice</label>
+            </div>
+            <div class="question-card" data-q="8">
+                <p><strong>8. Question 8 related to your topic content:</strong></p>
+                <label><input type="radio" name="q8" value="A"> A) Wrong choice</label><br>
+                <label><input type="radio" name="q8" value="B"> B) Correct choice</label>
+            </div>
+            <div class="question-card" data-q="9">
+                <p><strong>9. Question 9 related to your topic content:</strong></p>
+                <label><input type="radio" name="q9" value="A"> A) Correct choice</label><br>
+                <label><input type="radio" name="q9" value="B"> B) Wrong choice</label>
+            </div>
+            <div class="question-card" data-q="10">
+                <p><strong>10. Question 10 related to your topic content:</strong></p>
+                <label><input type="radio" name="q10" value="A"> A) Wrong choice</label><br>
+                <label><input type="radio" name="q10" value="B"> B) Correct choice</label>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+                <button type="button" id="reset-btn" onclick="resetQuiz()">Reset Quiz</button>
+            </div>
+        </form>
+
+        <!-- Results Display Box -->
+        <div id="results-section" class="hidden">
+            <h2>Quiz Results</h2>
+            <div id="summary-banner"></div>
+            <p id="time-spent-display"></p>
+            <div id="detailed-feedback"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 IT 3203 Project Milestone #2</p>
+    </footer>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
