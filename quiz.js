@@ -1,22 +1,27 @@
-// Define correct answers key
+/**
+ * PWA Quiz Evaluation Script
+ * Handles timer countdown, form grading (single-choice, checkboxes, text fields),
+ * score calculation, pass/fail results, and reset functionality.
+ */
+
 const correctAnswers = {
-    q1: "B",
-    q2: "C",
-    q3: "A",
-    q4: ["A", "C", "D"], // Multi-select array
-    q5: "javascript",    // Case-insensitive string check
-    q6: "css",
-    q7: "A",
-    q8: "B",
-    q9: "A",
-    q10: "B"
+    q1: "B",                  // Service Worker
+    q2: "A",                  // manifest.json
+    q3: "B",                  // Push API
+    q4: ["A", "C", "D"],      // Multi-select: Reliability, Installability, Responsiveness
+    q5: "https",              // Fill-in-the-blank
+    q6: "api",                // Fill-in-the-blank (Cache API)
+    q7: "A",                  // Stale-While-Revalidate
+    q8: "B",                  // Yes, installable via URL
+    q9: "B",                  // Intercept network requests
+    q10: "C"                  // standalone
 };
 
 let timerInterval;
 let timeLeft = 600; // 10 minutes in seconds
 let startTime = Date.now();
 
-// Start countdown timer on load
+// Initialize timer on window load
 window.onload = function() {
     startTimer();
 };
@@ -50,7 +55,7 @@ function submitQuiz() {
     let totalQuestions = 10;
     let feedbackHTML = "";
 
-    // Evaluate Q1 - Q3, Q7 - Q10 (Single Choice Radios)
+    // Evaluate single-choice radio questions (Q1-Q3, Q7-Q10)
     for (let i = 1; i <= 10; i++) {
         if (i === 4 || i === 5 || i === 6) continue; // Handled separately
         let qKey = `q${i}`;
@@ -67,7 +72,6 @@ function submitQuiz() {
 
     // Evaluate Q4 (Multi-selection checkboxes)
     let userQ4 = formData.getAll("q4");
-    // Sort and compare arrays
     let q4Correct = correctAnswers.q4.sort().toString() === userQ4.sort().toString();
     if (q4Correct) score++;
     feedbackHTML += `
@@ -82,7 +86,7 @@ function submitQuiz() {
     if (q5Correct) score++;
     feedbackHTML += `
         <div class="feedback-item ${q5Correct ? 'correct' : 'incorrect'}">
-            <p><strong>Q5 (Fill in blank):</strong> Your answer: "${formData.get("q5") || ""}" | Result: <strong>${q5Correct ? 'Correct' : 'Incorrect'}</strong> (Correct: JavaScript)</p>
+            <p><strong>Q5 (Fill in blank):</strong> Your answer: "${formData.get("q5") || ""}" | Result: <strong>${q5Correct ? 'Correct' : 'Incorrect'}</strong> (Correct: HTTPS)</p>
         </div>
     `;
 
@@ -92,19 +96,19 @@ function submitQuiz() {
     if (q6Correct) score++;
     feedbackHTML += `
         <div class="feedback-item ${q6Correct ? 'correct' : 'incorrect'}">
-            <p><strong>Q6 (Fill in blank):</strong> Your answer: "${formData.get("q6") || ""}" | Result: <strong>${q6Correct ? 'Correct' : 'Incorrect'}</strong> (Correct: CSS)</p>
+            <p><strong>Q6 (Fill in blank):</strong> Your answer: "${formData.get("q6") || ""}" | Result: <strong>${q6Correct ? 'Correct' : 'Incorrect'}</strong> (Correct: API)</p>
         </div>
     `;
 
-    // Calculate Pass/Fail (Threshold: 70% or 7/10)
+    // Calculate Pass/Fail (Passing threshold: 70% or 7/10)
     let percentage = (score / totalQuestions) * 100;
     let passed = percentage >= 70;
 
-    // Display Results Banner
+    // Display summary banner
     const summaryBanner = document.getElementById("summary-banner");
     summaryBanner.innerHTML = `
-        <h3 style="color: ${passed ? '#2e7d32' : '#c62828'};">
-            Status: ${passed ? 'PASS 🎉' : 'FAIL ❌'}
+        <h3 style="color: ${passed ? '#27ae60' : '#c0392b'};">
+            Overall Status: ${passed ? 'PASS 🎉' : 'FAIL ❌'}
         </h3>
         <p>Total Score: <strong>${score} / ${totalQuestions} (${percentage}%)</strong></p>
     `;
@@ -114,20 +118,20 @@ function submitQuiz() {
 
     document.getElementById("detailed-feedback").innerHTML = feedbackHTML;
     
-    // Show results box & scroll to it
+    // Reveal results section & smooth scroll into view
     const resultsSection = document.getElementById("results-section");
     resultsSection.classList.remove("hidden");
     resultsSection.scrollIntoView({ behavior: 'smooth' });
 }
 
 function resetQuiz() {
-    // Reset form fields
+    // Clear form inputs
     document.getElementById("quiz-form").reset();
     
-    // Hide results
+    // Hide results section
     document.getElementById("results-section").classList.add("hidden");
     
-    // Reset Timer
+    // Restart timer
     clearInterval(timerInterval);
     timeLeft = 600;
     startTime = Date.now();
